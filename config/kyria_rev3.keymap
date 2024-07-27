@@ -1,12 +1,14 @@
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/keys.h>
+#include <dt-bindings/zmk/outputs.h>
 
 #define L_DEF 0 // Default layer
 #define L_NUR 1 // Numrow layer
 #define L_NAV 2 // Navigation layer
 #define L_FUN 3 // Function layer
-#define L_NUP 4 // Numpad layer
+#define L_CON 4 // Connection layer
+#define L_NUP 5 // Numpad layer
 
 / {
     combos {
@@ -39,7 +41,7 @@
             &kp TAB         &kp Q &kp W &kp E     &kp R    &kp T                                                        &kp Y        &kp U    &kp I     &kp O   &kp P     &kp BSPC
             &mt LCTRL ESC   &kp A &kp S &kp D     &kp F    &kp G                                                        &kp H        &kp J    &kp K     &kp L   &kp NUHS  &mt RCTRL RBKT
             &mt LSHFT NUBS  &kp Z &kp X &kp C     &kp V    &kp B        &none     &mo L_NAV         &mo L_FUN &kp CAPS  &kp N        &kp M    &kp COMMA &kp DOT &kp FSLH  &mt RSHFT EQUAL
-                                        &mo L_NUP &kp LGUI &mt LALT RET &kp SPACE &mo L_NUR         &mo L_NUR &kp SPACE &mt RALT RET &kp RGUI &kp K_APP
+                                        &mo L_CON &kp LGUI &mt LALT RET &kp SPACE &mo L_NUR         &mo L_NUR &kp SPACE &mt RALT RET &kp RGUI &kp K_APP
             >;
         };
 
@@ -70,6 +72,15 @@
             >;
         };
 
+        connection_layer {
+            bindings = <
+            &none &none &none &none  &none &none                                    &out OUT_TOG &none        &none        &none        &none &none
+            &none &none &none &none  &none &none                                    &none        &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &none &bt BT_CLR
+            &none &none &none &none  &none &none &none &none            &none &none &none        &bt BT_SEL 3 &bt BT_SEL 4 &none        &none &bt BT_CLR_ALL
+                              &trans &none &none &none &mo L_NUP        &none &none &none        &none        &none
+            >;
+        };
+
         numpad_layer {
             bindings = <
             &none &none    &none    &none     &none     &none                                &kp KP_NUM &kp KP_N7 &kp KP_N8  &kp KP_N9 &kp KP_MULTIPLY &kp KP_DIVIDE
@@ -78,15 +89,6 @@
                                     &trans    &none     &none &none &trans       &none &none &none      &kp KP_N0 &kp KP_DOT
             >;
         };
-
-//        bluetooth_layer {
-//            bindings = <
-//            &trans &trans &bt BT_CLR &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2              &trans &trans &trans &trans &trans &trans
-//            &trans &trans &trans     &bt BT_SEL 3 &bt BT_SEL 4 &trans                    &trans &trans &trans &trans &trans &trans
-//            &trans &trans &trans &trans &trans &trans &trans &trans        &trans &trans &trans &trans &trans &trans &trans &trans
-//                                 &trans &trans &trans &trans &trans        &trans &trans &trans &trans &trans
-//            >;
-//        };
 
 //        template_layer {
 //            bindings = <
