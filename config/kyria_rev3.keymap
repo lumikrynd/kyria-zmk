@@ -4,6 +4,7 @@
 
 #define L_DEF 0 // Default layer
 #define L_NUR 1 // Numrow layer
+#define L_NAV 2 // Navigation layer
 
 / {
     combos {
@@ -34,8 +35,8 @@
         default_layer {
             bindings = <
             &kp TAB         &kp Q &kp W &kp E &kp R &kp T                                                &kp Y &kp U  &kp I     &kp O   &kp P     &kp BSPC
-            &mt RCTRL ESC   &kp A &kp S &kp D &kp F &kp G                                                &kp H &kp J  &kp K     &kp L   &kp NUHS  &mt RCTRL RBKT
-            &mt LSHFT NUBS  &kp Z &kp X &kp C &kp V &kp B &none  &none             &none      &kp CAPS   &kp N &kp M  &kp COMMA &kp DOT &kp FSLH  &mt RSHFT EQUAL
+            &mt LCTRL ESC   &kp A &kp S &kp D &kp F &kp G                                                &kp H &kp J  &kp K     &kp L   &kp NUHS  &mt RCTRL RBKT
+            &mt LSHFT NUBS  &kp Z &kp X &kp C &kp V &kp B &none  &mo L_NAV         &none      &kp CAPS   &kp N &kp M  &kp COMMA &kp DOT &kp FSLH  &mt RSHFT EQUAL
                        &none &kp  LGUI  &mt LALT RET  &kp SPACE  &mo L_NUR         &mo L_NUR  &kp SPACE  &mt RALT RET  &kp RGUI  &kp K_APP
             >;
         };
@@ -44,8 +45,17 @@
             bindings = <
             &kp GRAVE     &kp N1     &kp N2     &kp N3     &kp N4     &kp N5                                     &kp N6       &kp N7     &kp N8     &kp N9     &kp N0     &kp MINUS
             &kp LS(GRAVE) &kp LS(N1) &kp LS(N2) &kp LS(N3) &kp RA(N4) &kp LS(N5)                                 &kp LS(N6)   &kp LS(N7) &kp LS(N8) &kp LS(N9) &kp LS(N0) &kp LS(MINUS)
-            &kp RA(NUBS)  &none      &kp RA(N2) &kp RA(N3) &kp LS(N4) &none      &none &none        &none  &none &kp RA(RBKT) &kp RA(N7) &kp RA(N8) &kp RA(N9) &kp RA(N0) &kp RA(EQUAL)
+            &kp RA(NUBS)  &none      &kp RA(N2) &kp RA(N3) &kp LS(N4) &none      &none &trans       &none  &none &kp RA(RBKT) &kp RA(N7) &kp RA(N8) &kp RA(N9) &kp RA(N0) &kp RA(EQUAL)
                                                 &none      &none      &none      &none &trans       &trans &none &none        &none      &none
+            >;
+        };
+
+        navigationd_layer {
+            bindings = <
+            &none &none    &none    &none     &none     &none                                &kp HOME &kp PG_DN  &kp PG_UP &kp END    &kp C_VOL_UP &kp DEL
+            &none &kp LGUI &kp LALT &kp LCTRL &kp LSHFT &none                                &kp LEFT &kp DOWN   &kp UP    &kp RIGHT  &kp C_VOL_DN &kp INS
+            &none &none    &none    &none     &none     &none &none &trans       &none &none &none    &kp C_PREV &kp C_PP  &kp C_NEXT &kp C_MUTE   &kp PSCRN
+                                    &none     &none     &none &none &trans       &none &none &none    &none      &none
             >;
         };
 
