@@ -3,6 +3,15 @@
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/outputs.h>
 
+#include "keys_da.h"
+#define DA_OE DA_O_SLASH
+#define DA_AA DA_A_RING
+
+#define DA_UM DA_UMLAUT
+#define DA_QT DA_SQT
+#define DA_MI DA_MINUS
+#define DA_AC DA_ACUTE
+
 #define L_DEF 0 // Default layer
 #define L_NUR 1 // Numrow layer
 #define L_NAV 2 // Navigation layer
@@ -16,19 +25,19 @@
         combo_ae {
             timeout-ms = <35>;
             key-positions = <8 9>;
-            bindings = <&kp SEMI>;
+            bindings = <&kp DA_AE>;
             layers = <0>;
         };
         combo_oe {
             timeout-ms = <35>;
             key-positions = <20 21>;
-            bindings = <&kp SQT>;
+            bindings = <&kp DA_OE>;
             layers = <0>;
         };
         combo_aa {
             timeout-ms = <35>;
             key-positions = <36 37>;
-            bindings = <&kp LBKT>;
+            bindings = <&kp DA_AA>;
             layers = <0>;
         };
     };
@@ -39,8 +48,8 @@
         default_layer {
             bindings = <
             &kp TAB         &kp Q &kp W &kp E     &kp R    &kp T                                                        &kp Y        &kp U    &kp I     &kp O   &kp P     &kp BSPC
-            &mt LCTRL ESC   &kp A &kp S &kp D     &kp F    &kp G                                                        &kp H        &kp J    &kp K     &kp L   &kp NUHS  &mt RCTRL RBKT
-            &mt LSHFT NUBS  &kp Z &kp X &kp C     &kp V    &kp B        &none     &mo L_NAV         &mo L_FUN &kp CAPS  &kp N        &kp M    &kp COMMA &kp DOT &kp FSLH  &mt RSHFT EQUAL
+            &mt LCTRL ESC   &kp A &kp S &kp D     &kp F    &kp G                                                        &kp H        &kp J    &kp K     &kp L   &kp DA_QT &mt RCTRL DA_UM
+            &mt LSHFT DA_LT &kp Z &kp X &kp C     &kp V    &kp B        &none     &mo L_NAV         &mo L_FUN &kp CAPS  &kp N        &kp M    &kp COMMA &kp DOT &kp DA_MI &mt RSHFT DA_AC
                                         &mo L_CON &kp LGUI &mt LALT RET &kp SPACE &mo L_NUR         &mo L_NUR &kp SPACE &mt RALT RET &kp RGUI &kp K_APP
             >;
         };
