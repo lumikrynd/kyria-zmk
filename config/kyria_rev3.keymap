@@ -13,11 +13,12 @@
 #define DA_AC DA_ACUTE
 
 #define L_DEF 0 // Default layer
-#define L_NUR 1 // Numrow layer
-#define L_NAV 2 // Navigation layer
-#define L_FUN 3 // Function layer
-#define L_CON 4 // Connection layer
-#define L_NUP 5 // Numpad layer
+#define L_DHR 1 // Default layer
+#define L_NUR 2 // Numrow layer
+#define L_NAV 3 // Navigation layer
+#define L_FUN 4 // Function layer
+#define L_CON 5 // Connection layer
+#define L_NUP 6 // Numpad layer
 
 / {
     combos {
@@ -54,6 +55,15 @@
             >;
         };
 
+        default_homerow_layer {
+            bindings = <
+            &trans &trans     &trans     &trans      &trans      &trans                                    &trans &trans      &trans      &trans     &trans         &trans
+            &trans &mt LGUI A &mt LALT S &mt LCTRL D &mt LSHFT F &trans                                    &trans &mt LSHFT J &mt LCTRL K &mt LALT L &mt LGUI DA_QT &trans
+            &trans &trans     &trans     &trans      &mt RALT V  &trans &trans &trans        &trans &trans &trans &mt RALT M  &trans      &trans     &trans         &trans
+                                         &trans      &trans      &trans &trans &trans        &trans &trans &trans &trans      &trans
+            >;
+        };
+
         numrow_layer {
             bindings = <
             &kp GRAVE     &kp N1     &kp N2     &kp N3     &kp N4     &kp N5                                     &kp N6       &kp N7     &kp N8     &kp N9     &kp N0     &kp MINUS
@@ -83,10 +93,10 @@
 
         connection_layer {
             bindings = <
-            &none &none &none &none  &none &none                                    &out OUT_TOG &none        &none        &none        &none &none
-            &none &none &none &none  &none &none                                    &none        &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &none &bt BT_CLR
-            &none &none &none &none  &none &none &none &none            &none &none &none        &bt BT_SEL 3 &bt BT_SEL 4 &none        &none &bt BT_CLR_ALL
-                              &trans &none &none &none &mo L_NUP        &none &none &none        &none        &none
+            &none &none &none &none  &none &none                                         &out OUT_TOG &none        &none        &none        &none &none
+            &none &none &none &none  &none &tog L_DHR                                    &none        &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &none &bt BT_CLR
+            &none &none &none &none  &none &none      &none &none            &none &none &none        &bt BT_SEL 3 &bt BT_SEL 4 &none        &none &bt BT_CLR_ALL
+                              &trans &none &none      &none &mo L_NUP        &none &none &none        &none        &none
             >;
         };
 
