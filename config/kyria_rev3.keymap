@@ -21,6 +21,17 @@
 #define L_NUP 6 // Numpad layer
 
 / {
+    behaviors {
+        hr: balanced_homerow_mods {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            tapping-term-ms = <200>;
+            quick-tap-ms = <200>;
+            flavor = "balanced";
+            bindings = <&kp>, <&kp>;
+        };
+    };
+
     combos {
         compatible = "zmk,combos";
         combo_ae {
@@ -58,8 +69,8 @@
         default_homerow_layer {
             bindings = <
             &trans &trans     &trans     &trans      &trans      &trans                                    &trans &trans      &trans      &trans     &trans         &trans
-            &trans &mt LGUI A &mt LALT S &mt LCTRL D &mt LSHFT F &trans                                    &trans &mt LSHFT J &mt LCTRL K &mt LALT L &mt LGUI DA_QT &trans
-            &trans &trans     &trans     &trans      &mt RALT V  &trans &trans &trans        &trans &trans &trans &mt RALT M  &trans      &trans     &trans         &trans
+            &trans &hr LGUI A &hr LALT S &hr LCTRL D &hr LSHFT F &trans                                    &trans &hr LSHFT J &hr LCTRL K &hr LALT L &hr LGUI DA_QT &trans
+            &trans &trans     &trans     &trans      &hr RALT V  &trans &trans &trans        &trans &trans &trans &hr RALT M  &trans      &trans     &trans         &trans
                                          &trans      &trans      &trans &trans &trans        &trans &trans &trans &trans      &trans
             >;
         };
