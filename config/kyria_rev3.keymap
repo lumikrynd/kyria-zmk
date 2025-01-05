@@ -27,19 +27,19 @@
             timeout-ms = <35>;
             key-positions = <8 9>;
             bindings = <&kp DA_AE>;
-            layers = <0>;
+            layers = <L_DEF L_DHR>;
         };
         combo_oe {
             timeout-ms = <35>;
             key-positions = <20 21>;
             bindings = <&kp DA_OE>;
-            layers = <0>;
+            layers = <L_DEF L_DHR>;
         };
         combo_aa {
             timeout-ms = <35>;
             key-positions = <36 37>;
             bindings = <&kp DA_AA>;
-            layers = <0>;
+            layers = <L_DEF L_DHR>;
         };
     };
 
