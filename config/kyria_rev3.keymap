@@ -22,11 +22,19 @@
 
 / {
     behaviors {
-        hr: balanced_homerow_mods {
+        hr1: normal_homerow_mods {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
             tapping-term-ms = <200>;
             quick-tap-ms = <200>;
+            flavor = "tap-preferred";
+            bindings = <&kp>, <&kp>;
+        };
+        hr2: fast_homerow_mods {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            tapping-term-ms = <150>;
+            quick-tap-ms = <150>;
             flavor = "tap-preferred";
             bindings = <&kp>, <&kp>;
         };
@@ -68,10 +76,10 @@
 
         default_homerow_layer {
             bindings = <
-            &trans &trans     &trans     &trans      &hr RALT R  &trans                                    &trans &hr RALT U  &trans      &trans     &trans         &trans
-            &trans &hr LGUI A &hr LALT S &hr LCTRL D &hr LSHFT F &trans                                    &trans &hr LSHFT J &hr LCTRL K &hr LALT L &hr LGUI DA_QT &trans
-            &trans &trans     &trans     &trans      &trans      &trans &trans &trans        &trans &trans &trans &trans      &trans      &trans     &trans         &trans
-                                         &trans      &trans      &trans &trans &trans        &trans &trans &trans &trans      &trans
+            &trans &trans      &trans      &trans       &hr1 RALT R  &trans                                    &trans &hr1 RALT U  &trans       &trans      &trans          &trans
+            &trans &hr1 LGUI A &hr1 LALT S &hr1 LCTRL D &hr2 LSHFT F &trans                                    &trans &hr2 LSHFT J &hr1 LCTRL K &hr1 LALT L &hr1 LGUI DA_QT &trans
+            &trans &trans      &trans      &trans       &trans       &trans &trans &trans        &trans &trans &trans &trans       &trans       &trans      &trans          &trans
+                                           &trans       &trans       &trans &trans &trans        &trans &trans &trans &trans       &trans
             >;
         };
 
